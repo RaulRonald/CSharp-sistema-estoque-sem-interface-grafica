@@ -4,10 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
-
-
-
-
 namespace loja
 {
 	public class Produto
@@ -24,13 +20,24 @@ namespace loja
 		static void verestoque()
 		{
 			List<Produto>prod = new List<Produto>();
-			StreamWriter escritor = new StreamWriter("batata.txt");
 			prod.Add(new Produto());
-			prod[0].proName = Console.ReadLine();
-			escritor.WriteLine(prod[0].proName);
-			prod[0].proName = Console.ReadLine();
-			escritor.WriteLine(prod[0].proName);
-			escritor.Close();
+			string[] linhas = File.ReadAllLines("texto.txt");
+				int j = 0;
+			for (int i = 0;i < linhas.Length;i++)
+            {
+				
+                prod[j].proID = int.Parse(linhas[i]);
+				i++;
+				prod[j].proQuant = int.Parse(linhas[i]);
+				i++;
+				prod[j].proName = (linhas[i]);
+				i++;
+				prod[j].proValue = float.Parse(linhas[i]);
+				Console.WriteLine("ID : " + prod[j].proID + " " + "Quant : " + prod[j].proQuant + " " + "Nome : " + prod[j].proName + " " + "Valor : R$" + prod[j].proValue + "\n");
+				prod.Add(new Produto());
+				j++;
+			}
+			Console.ReadLine();
 		}
 
 		static void Main()
