@@ -4,17 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using objloja;
 namespace loja
 {
-	public class Produto
-	{
-		public int proID;
-		public int proQuant;
-		public string proName;
-		public float proValue;
-		public Produto()
-		{ }
-	}
+	
 	public class Principal
 	{
 		static void verestoque()
@@ -40,7 +33,8 @@ namespace loja
 			Console.ReadLine();
 		}
 
-		static void Main()
+		public static void Main()
+
 		{
 			int opcao;
 			Console.WriteLine
